@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style>
+            body {
+                background:linear-gradient(to right,pink,white);
+                
+            }
+            
+        </style>
+
+    </head>
+    <body>
+        <center>
+
+        <h1>Anagram Check</h1>
+        Enter First String : &nbsp; <input type="text" id="txt1"> <br><br>
+        Enter Second String : &nbsp; <input type="text" id="txt2"> <br><br><br>
+
+        <input type="submit" value="check" onclick="checkanagram()">
+        <br><br>
+        <p id="result"></p>
+        
+    </center>
+
+    <script>
+        function checkanagram() {
+        var str1 = document.getElementById("txt1").value.toLowerCase();
+        var str2 = document.getElementById("txt2").value.toLowerCase();
+        if(str1.length != str2.length) {
+            document.getElementById("result").innerHTML="NO, They are not Anagram (strings are of different length)";
+            return;
+        }
+        
+
+        var str1split = str1.split('').sort().join('');
+        var str2split = str2.split('').sort().join('');
+
+        if(str1split == str2split) {
+            document.getElementById("result").innerHTML="Yes, They are  Anagram";
+        }
+        else {
+            document.getElementById("result").innerHTML="No, They are not Anagram";
+        }
+    }
+    </script>
+    </body>
+</html>

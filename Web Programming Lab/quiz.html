@@ -1,0 +1,106 @@
+<html>
+<head>
+  <title>Simple Quiz</title>
+<style>
+
+	
+	h1 {
+		text-align:center;
+	 	font-weight:bold;
+	}
+	
+	body {
+  		background: linear-gradient(to right, #ff9a9e, #fad0c4);
+	}
+	
+	h3 {
+		
+		margin-bottom: 10px;
+	}
+	submit {
+		  padding: 10px 20px;
+		  border: none;
+		  border-radius: 5px;
+		  background-color: #007bff;
+		  color: #fff;
+		  cursor: pointer;
+		  transition: background-color 0.3s ease;
+	}
+
+	submit:hover {
+  		background-color: #0056b3;
+	}
+</style>  
+</head>
+<body>
+  <h1>Country Capital Quiz</h1>
+  
+    <ol>
+      <li>
+        <h3>Question 1: What is the capital of France?</h3>
+        <input type="radio" name="question1" value="Paris" id="correct1"> Paris<br>
+        <input type="radio" name="question1" value="London"> London<br>
+        <input type="radio" name="question1" value="Berlin"> Berlin<br>
+        <input type="radio" name="question1" value="Madrid"> Madrid<br>
+      </li>
+      <li>
+        <h3>Question 2: What is the capital of China?</h3>
+        <input type="radio" name="question2" value="Beijing" id="correct2">Beijing<br>
+        <input type="radio" name="question2" value="Shanghai">Shanghai<br>
+        <input type="radio" name="question2" value="Seoul">Seoul<br>
+        <input type="radio" name="question2" value="Tokyo">Tokyo<br>
+      </li>
+      <li>
+        <h3>Question 3: What is the capital of Japan?</h3>
+        <input type="radio" name="question3" value="Beijing">Beijing<br>
+        <input type="radio" name="question3" value="Shanghai">Shanghai<br>
+        <input type="radio" name="question3" value="Seoul">Seoul<br>
+        <input type="radio" name="question3" value="Tokyo" id="correct3">Tokyo<br>
+      </li>
+      <li>
+        <h3>Question 4: What is the capital of Saudi Arabia?</h3>
+        <input type="radio" name="question4" value="Beijing">Beijing<br>
+        <input type="radio" name="question4" value="Shanghai">Shanghai<br>
+        <input type="radio" name="question4" value="Riyadh" id="correct4">Riyadh<br>
+        <input type="radio" name="question4" value="Tokyo">Tokyo<br>
+      </li>
+      <li>
+        <h3>Question 5: What is the capital of India?</h3>
+        <input type="radio" name="question7" value="Andorra la Vella">Andorra la Vella<br>
+        <input type="radio" name="question7" value="New Delhi" id="correct5">New Delhi<br>
+        <input type="radio" name="question7" value="Yerevan">Yerevan<br>
+        <input type="radio" name="question7" value="Copenhagen">Copenhagen<br>
+      </li>
+      
+    </ol>
+    <input type="submit" value="Submit" onclick="result()">
+  
+
+  <p id="result"></p>
+
+  <script>
+
+    function result() {
+      var score=0;
+      if (document.getElementById("correct1").checked) {
+        score++;
+      }
+      if (document.getElementById("correct2").checked) {
+        score++;
+      }
+      if (document.getElementById("correct3").checked) {
+        score++;
+      }
+      if (document.getElementById("correct4").checked) {
+        score++;
+      }
+      if (document.getElementById("correct5").checked) {
+        score++;
+      }
+
+      document.getElementById("result").innerHTML="The Total Score is :"+score;
+    }
+ 
+  </script>
+  </body>
+  </html>

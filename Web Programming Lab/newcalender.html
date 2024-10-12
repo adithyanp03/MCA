@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calendar</title>
+  <style>
+    table {
+      border-collapse: collapse;
+    }
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <label for="yearInput">Enter Year:</label>
+  <input type="number" id="yearInput" placeholder="Enter year">
+
+  <label for="monthSelect">Select Month:</label>
+  <select id="monthSelect">
+    <option value="0">January</option>
+    <option value="1">February</option>
+    <option value="2">March</option>
+    <option value="3">April</option>
+    <option value="4">May</option>
+    <option value="5">June</option>
+    <option value="6">July</option>
+    <option value="7">August</option>
+    <option value="8">September</option>
+    <option value="9">October</option>
+    <option value="10">November</option>
+    <option value="11">December</option>
+  </select>
+
+  <button onclick="displayCalendar()">Show Calendar</button>
+
+  <div id="calendar"></div>
+  <script>
+  function displayCalendar() {
+    const year = document.getElementById("yearInput").value;
+    const month = document.getElementById("monthSelect").value;
+    
+    const daysinmonth = new Date(year,parseInt(month+1),0).getDate();
+    const firstday = new Date(year,month,1).getDate();
+
+
+    let calender = '<table><tr><td>Sun</td><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td></tr><tr>';
+
+    let dayCount=1;
+
+    for (i=0;i<7;i++) {
+      for (j=0;j<7;j++) {
+        if (i === 0 && j < firstday) {
+          calender += '<td></td>';
+        }
+        else if (dayCount > daysinmonth) {
+          break;
+        }
+        else {
+          calender += `<td>${dayCount}</td>`;
+          dayCount++;
+        }
+      if (dayCount > daysinmonth) {
+        break;
+      }
+      else {
+        calender += '</tr><tr>';
+      }
+      }
+    }
+
+    calender += '</tr></table>';
+
+    document.getElementById("calendar").innerHTML=calender;
+
+  } 
+  </script>
+
+  
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Mouse Hover Effect</title>
+    </head>
+    <body bgcolor="pink">
+        <h1 align = "center">Mouse Hover Effect</h1>
+        
+            <p align="center" id="hover"  onmouseover="changecontent()" onmouseout="resetcontent()">Place the mouse here to change content</p>
+            <p></p>
+        
+        <script>
+            function changecontent()  {
+                document.getElementById("hover").innerHTML='<p>Hi i am Adithyan</p><br><br><img src="adithyan.jpg" height="200" width="150">' 
+
+            }
+
+            function resetcontent() {
+                document.getElementById("hover").innerHTML=' <p align="center" >Place the mouse here to see me</p>'
+
+            }
+        </script>
+    </body>
+</html>

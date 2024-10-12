@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form Validation</title>
+  <style>
+    .error {
+      color: red;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <form id="myForm" onsubmit="return formValidate()">
+    <div>
+      <label for="name">Name (Minimum 3 characters, only special characters allowed are space, comma, and ')</label><br>
+      <input type="text" id="name" name="name">
+      <span id="nameError" class="error"></span>
+    </div>
+    <div>
+      <label for="password">Password (8-15 characters, at least 1 uppercase, 1 special character, and 1 digit)</label><br>
+      <input type="password" id="password" name="password">
+      <span id="passwordError" class="error"></span>
+    </div>
+    <div>
+      <label for="confirmPassword">Confirm Password</label><br>
+      <input type="password" id="confirmPassword" name="confirmPassword">
+      <span id="confirmPasswordError" class="error"></span>
+    </div>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      validateForm();
+    });
+
+    function validateForm() {
+      const name = document.getElementById('name').value.trim().toUpperCase();
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+
+      let nameError = '';
+      let passwordError = '';
+      let confirmPasswordError = '';
+
+      // Validate Name
+      if (name.length < 3 || !/^[a-zA-Z ,']+$/.test(name)) {
+        nameError = 'Name should be at least 3 characters long and only contain space, comma, or \' characters.';
+      }
+
+      // Validate Password
+      if (password.length < 6 || password.length > 15 || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*()\-_=+{};:,<.>]/.test(password)) {
+        passwordError = 'Password must be 8-15 characters with at least 1 uppercase letter, 1 digit, and 1 special character.';
+      }
+
+      // Validate Confirm Password
+      if (password !== confirmPassword) {
+        confirmPasswordError = 'Passwords do not match.';
+      }
+
+      // Display errors
+      document.getElementById('nameError').textContent = nameError;
+      document.getElementById('passwordError').textContent = passwordError;
+      document.getElementById('confirmPasswordError').textContent = confirmPasswordError;
+
+      // Submit the form if no errors
+      if (!nameError && !passwordError && !confirmPasswordError) {
+        alert('Form submitted successfully!');
+        // You can also submit the form using:
+        // document.getElementById('myForm').submit();
+      }
+    }
+  </script>
+</body>
+</html>

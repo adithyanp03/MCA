@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Maths Quiz</title>
+        <style>
+            .box {
+                background-color: beige;
+                border-radius: 45px;
+                margin-top: 20px;
+                padding: 8px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 align = center>Maths Quiz</h1>
+        <div class="box">
+            Q1) 2 - 7 ? <br>
+            <input type="radio" name="Q1" id="ans1">-5<br> 
+            <input type="radio" name="Q1" >5<br>
+            <input type="radio" name="Q1" >-50<br>
+            <input type="radio" name="Q1" >15<br><br>
+        </div>
+        <div class="box">
+            Q2) 4 - 7 ? <br>
+            <input type="radio" name="Q2" id="ans2">-3<br> 
+            <input type="radio" name="Q2" >5<br>
+            <input type="radio" name="Q2" >-50<br>
+            <input type="radio" name="Q2" >15<br><br>
+        </div>
+        <div class="box">
+            Q2) 3 - 7 ? <br>
+            <input type="radio" name="Q3" id="ans3">10<br> 
+            <input type="radio" name="Q3" >5<br>
+            <input type="radio" name="Q3" >-50<br>
+            <input type="radio" name="Q3" >15<br><br>
+        </div>    
+        <div>
+            <input type="button" value="submit" id ="btn" onclick="calculatemark()">
+            <p id = "result"></p>
+        </div>
+
+        <script>
+            function calculatemark() {
+                var score=0;
+                if (document.getElementById("ans1").checked) {
+                    score++;
+                }
+                if (document.getElementById("ans2").checked) {
+                    score++;
+                }
+                if (document.getElementById("ans3").checked) {
+                    score++;
+                }
+
+                document.getElementById("result").innerHTML="The total score is : " +score;
+            }
+        </script>
+    </body>
+</html>

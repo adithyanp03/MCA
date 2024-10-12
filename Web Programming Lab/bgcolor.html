@@ -1,0 +1,23 @@
+<html>
+    <head>
+        <title>Background color Change</title>
+
+    </head>
+    <body>
+        <center>
+            <h1>backgroundColor Change</h1>
+            <form>
+                <input type="button" value="Click Me" onClick="changecolor()">
+            </form>
+        </center>
+
+
+        <script>
+            function changecolor()  {
+                const randomcolor='#' + Math.floor(Math.random() * 1677455).toString(16);
+                document.body.style.backgroundColor=randomcolor
+
+            }
+        </script>
+    </body>
+</html>
