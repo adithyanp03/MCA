@@ -1,0 +1,39 @@
+package com.TCR23_MCA_2024;
+
+import java.util.Scanner;
+public class matrixPrint {
+	public static void main (String args[]) {
+		Scanner no = new Scanner(System.in);
+		System.out.println("Enter the No. of Rows of Matrix : ");
+		int row = no.nextInt();
+		System.out.println("Enter the No. of Columns of Matrix : ");
+		int column = no.nextInt();
+		
+		int[][] matrix = new int[row][column];  
+		System.out.println("Enter the elements of Matrix : ");
+		for (int i=0;i<row;i++) {
+			for (int j=0;j<column;j++) {
+				matrix[i][j]=no.nextInt();
+			}
+		}
+		
+		System.out.println("MAtrix : ");
+		printMatrix(matrix);
+		
+	}
+	
+	public static void printMatrix(int[][] matrix) {
+		int row = matrix.length;
+		int column = matrix[0].length;
+		
+		for (int i=0;i<row;i++) {
+			for (int j=0;j<column;j++) {
+				System.out.print(matrix[i][j] + " ");
+			}
+			System.out.println();
+		}
+	}
+	
+	
+	 
+}
